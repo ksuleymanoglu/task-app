@@ -16,7 +16,10 @@ now = t.strftime("%b-%d, %Y")
 
 st.title("My Task App")
 st.subheader(f"Today's Tasks: {now}")
+st.write("This app will **increase** your *productivity*")
 
+st.text_input(label="", placeholder="Enter a Task", key="new_task",
+              on_change=add_task, )
 
 for index, task in enumerate(tasks):
     key = f"{index}_{task}"  # e.g. "2_Third task\n"
@@ -27,6 +30,5 @@ for index, task in enumerate(tasks):
         del st.session_state[key]
         st.rerun()
 
-st.text_input(label="", placeholder="Enter a Task", key="new_task",
-              on_change=add_task, )
+
 
